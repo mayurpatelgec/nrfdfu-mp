@@ -18,18 +18,19 @@ As of writing this I have not received an answer but it is probably something al
 ### How To:
 #### Dependencies
 
-`bluez`: installed already, if not then follow [this tutorial](https://learn.adafruit.com/install-bluez-on-the-raspberry-pi/installation) to install manually
-
+`bluez`: installed already, if not then follow [this tutorial](https://learn.adafruit.com/install-bluez-on-the-raspberry-pi/installation) to install manually \
 `sudo apt-get install autoconf libzip-dev libjson-c-dev`
 
 #### Build
 ```
-autoreconf --verbose --install --force
-./configure
-make
+cd nrfdfu-mp                            # cd in main project folder
+mkdir build && cd build                 # Build in seprate folder
+autoreconf --verbose --install ..       # execute autoconf 
+./configure                             # configure & generate make file
+make                                    # compile and generate binary
 ````
 (find the new generated binary named **nrfdfu** after executing the make successfully)
 
 #### Usage
-`sudo ./nrfdfu -b bt_addr -p zip_pkg_file`  \
-example:  `sudo ./nrfdfu -b c2:b6:80:22:85:8a -p ble_app_hrs_s140.zip`
+`sudo ./nrfdfu -b bt_addr -p path_to_zip_pkg_file`  \
+example:  `sudo ./nrfdfu -b c2:b6:80:22:85:8a -p ../ble_app_hrs_s140.zip`
