@@ -6,11 +6,6 @@
 
 A Linux utility for performing Bluetooth DFU firmware upgrades for Nordic Semiconductor nRF52 and probably nRF51 using a regular BT interface. 
 
-### Tested: 
-
-DFU Controller: 	Raspberry Pi 4B+ (with in-built BT Chip) (OS: Raspbian)   \
-DFU Target:			Nordic nRF52832 Evalboard (PCA10040)
-
 ### License:
 I have asked the original author on [https://devzone.nordicsemi.com/f/nordic-q-a/1620/linux-dfu-client-for-nrf51822-over-the-air-bootloader](https://devzone.nordicsemi.com/f/nordic-q-a/1620/linux-dfu-client-for-nrf51822-over-the-air-bootloader) about the original license.  
 As of writing this I have not received an answer but it is probably something along "GPL-2 or later" as most files in bluez is released under this license and the original code is supposed to be based on bluez code.
@@ -33,4 +28,18 @@ make                                    # compile and generate binary
 
 #### Usage
 `sudo ./nrfdfu -b bt_addr -p path_to_zip_pkg_file`  \
-example:  `sudo ./nrfdfu -b c2:b6:80:22:85:8a -p ../ble_app_hrs_s140.zip`
+example:  `sudo ./nrfdfu -b c2:b6:80:22:85:8a -p ../examples/ble_app_hrs_s140.zip`
+
+### Tested: 
+
+DFU Controller: 	Raspberry Pi 4B+ (with in-built BT Chip) (OS: Raspbian)   \
+DFU Target:			Nordic nRF52832 Evalboard (PCA10040)
+
+1. Prepare PCA10040 Board for update : flash  examples/secure_dfu_ble_s132_pca10040_debug.hex via nRF-Connect PC Tool or via nrfjprog.exe commandline tool
+2. Prepare Raspberry with nrfdfu: build the project and generate nrfdfu binary
+3. check if PCA10040 started publishing with name "DfuTarg" and find BT-Address: via using Android App nrf-connect
+4. execute the update on raspberry: sudo ./nrfdfu -b c2:b6:80:22:85:8a -p ../examples/ble_app_hrs_s140.zip
+5. check the output as shown in the image below
+
+
+![output](./images/output.png?raw=true "output")
