@@ -31,7 +31,5 @@ make
 (find the new generated binary named **nrfdfu** after executing the make successfully)
 
 #### Usage
-```
-sudo ./nrfdfu -b bt_addr -p zip_pkg_file
-```
+`sudo ./nrfdfu -b bt_addr -p zip_pkg_file`  \
 example:  `sudo ./nrfdfu -b c2:b6:80:22:85:8a -p ble_app_hrs_s140.zip`
