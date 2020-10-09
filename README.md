@@ -8,8 +8,7 @@ A Linux utility for performing Bluetooth DFU firmware upgrades for Nordic Semico
 
 ### Tested: 
 
-DFU Controller: 	Raspberry Pi 4B+ (with in-built BT Chip) (OS: Raspbian)
-
+DFU Controller: 	Raspberry Pi 4B+ (with in-built BT Chip) (OS: Raspbian)   \
 DFU Target:			Nordic nRF52832 Evalboard (PCA10040)
 
 ### License:
